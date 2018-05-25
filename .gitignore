@@ -107,4 +107,4 @@ venv.bak/
 messages.db
 
 # Pycharm stuff
-.idea
+.idea/
