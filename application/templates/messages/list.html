@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+
+{% block body %}
+  <table>
+    <tr>
+      <th>Message</th>
+      <th>Read</th>
+    </tr>
+    {% for m in ms %}
+    <tr>
+      <td>{{ m.subject }}</td>
+      <td>{{ m.read }}</td>
+      <td>
+         <form method="POST" action="{{ url_for('message_set_read', message_id=m.id) }}">
+	        <input type="submit" value="Read!"/>
+         </form>
+      </td>
+    </tr>
+    {% endfor %}
+  </table>
+{% endblock %}
