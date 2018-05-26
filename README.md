@@ -14,7 +14,8 @@ Writing messages
 Removing/modifying messages  
 Categorizing
 
-[Linkki herokuun](https://desolate-brushlands-10650.herokuapp.com/)
+[Link to Heroku](https://desolate-brushlands-10650.herokuapp.com/)
 
-[Linkki tietokantakaavioon](https://github.com/mrasola/keskustelufoorumi/blob/master/documentation/DB_table.md)
+[Link to Database table](https://github.com/mrasola/keskustelufoorumi/blob/master/documentation/DB_table.md)
 
+[Link to user stories](https://github.com/mrasola/keskustelufoorumi/blob/master/documentation/UserStories.md)
