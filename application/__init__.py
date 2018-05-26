@@ -16,7 +16,6 @@ app.config["SQLALCHEMY_ECHO"] = True
 # Luodaan db-olio, jota käytetään tietokannan käsittelyyn
 db = SQLAlchemy(app)
 
-
 from application import views
 from application.messages import models
 from application.messages import views
