@@ -7,12 +7,12 @@ messages.
 
 Functionality:
 
-Log in and signing up  
+Signing in and registration   
 Opening a thread  
 Searching messages (and maybe users)    
 Writing messages  
-Removing/deleting messages  
-Categories
+Removing/modifying messages  
+Categorizing
 
 [Linkki herokuun](https://desolate-brushlands-10650.herokuapp.com/)
 
