@@ -1,19 +1,20 @@
-# Keskustelufoorumi
+# Discussion Forum
 
-Harjoitustyössä tehdään keskustelufoorumi jonkin yhteisön, vaikkapa opiskelijajärjestön sisäiseen käyttöön. Käyttäjä voi lukea järjestelmän tallennettuja kirjoituksia ja lisätä tietokantaan uusia kirjoituksia, jotka voivat olla myös vastineita aiempiin kirjoituksiin. Kirjoituksia voi hakea kirjoittajan nimen tai aiheen tai artikkelin iän perusteella. Lukija voi seurata myös vastinepolkua. Oletusarvoisesti lukijalle näytetään kaikki tietty ikää tuoreemmat artikkelit varustettuna informaatiolla siitä onko lukija itse ja ovatko kaikki yhteisön jäsenet jo lukeneet artikkelin. Lukija identifioi aina itsensä ja artikkeleihin liitetään tieto henkilöistä jotka ovat lukeneet ne. Tämä tieto on kaikkien lukijoiden saatavissa.
+This is a simple discussion forum. The forum has basic operations such
+as logging in, opening a new thread, answering to thread, modifying 
+a message, reading messages etc. It will also be possible to search 
+messages.
 
-Järjestelmän ylläpitäjällä on oma liittymä, jonka kautta hän ylläpitää järjestön käyttäjien jäsentietoja ja heidän kuulumistan eri ryhmiin, siivota kirjoituskantaa ja määrittellä aiheita, joiden perusteella kirjoituksia voi ryhmitellä.
+Functionality:
 
-Toimintoja:
+Log in and signing up  
+Opening a thread  
+Searching messages (and maybe users)    
+Writing messages  
+Removing/deleting messages  
+Categories
 
-Kirjautuminen
-Kirjoituksen lisääminen
-Kirjoitusten näyttäminen eri kriteerein
-Ryhmän jäsenen lisääminen, muokkaaminen ja poistaminen
-Vastineen laatiminen ja muokkaus
-Kirjoitusten poistaminen
-Aiheiden määrittely, muokkaus ja poisto
+[Linkki herokuun](https://desolate-brushlands-10650.herokuapp.com/)
 
-Linkki herokuun: 
+[Linkki tietokantakaavioon](https://github.com/mrasola/keskustelufoorumi/blob/master/documentation/DB_table.md)
 
-https://desolate-brushlands-10650.herokuapp.com/
