@@ -14,6 +14,8 @@ Writing messages
 Removing/modifying messages  
 Categorizing
 
+## Links:
+
 [Link to Heroku](https://desolate-brushlands-10650.herokuapp.com/)
 
 [Link to Database table](https://github.com/mrasola/keskustelufoorumi/blob/master/documentation/DB_table.md)
