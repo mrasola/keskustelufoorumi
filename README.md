@@ -5,7 +5,7 @@ as logging in, opening a new thread, answering to thread, modifying
 a message, reading messages etc. It will also be possible to search 
 messages.
 
-Functionality:
+## Functionality:
 
 Signing in and registration   
 Opening a thread  
