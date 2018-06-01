@@ -3,6 +3,7 @@
 {% block body %}
 <form method="POST" action="{{ url_for('messages_create') }}">
   <input type="text" name="subject"/>
+  <input type="text" name="body"/>
   <input type="submit" value="Make new message"/>
 </form>
 {% endblock %}

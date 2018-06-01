@@ -12,7 +12,7 @@ def messages_form():
 
 @app.route("/messages/", methods=["POST"])
 def messages_create():
-    m = Message(request.form.get("subject"))
+    m = Message(request.form.get("subject"), request.form.get("body"))
 
     db.session().add(m)
     db.session().commit()
@@ -26,3 +26,9 @@ def message_set_read(message_id):
     db.session().commit()
 
     return redirect(url_for("messages_index"))
+
+@app.route("/messages/<message_id>/", methods=["GET"])
+def message_look(message_id):
+    m = Message.query.get(message_id)
+
+    return render_template("messages/lookMessage.html", m=m)
