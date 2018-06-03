@@ -105,7 +105,7 @@ venv
 .mypy_cache/
 
 # database
-messages.db
+forum.db
 
 # Pycharm stuff
 .idea/

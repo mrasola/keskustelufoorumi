@@ -1,6 +1,7 @@
 from application import app, db
 from flask import render_template, request, url_for, redirect
 from application.messages.models import Message
+from application.messages.forms import MessageForm
 
 @app.route("/messages", methods=["GET"])
 def messages_index():
@@ -8,11 +9,15 @@ def messages_index():
 
 @app.route("/messages/new/")
 def messages_form():
-    return render_template("messages/new.html")
+    return render_template("messages/new.html", form=MessageForm())
 
 @app.route("/messages/", methods=["POST"])
 def messages_create():
-    m = Message(request.form.get("subject"), request.form.get("body"))
+    f = MessageForm(request.form)
+    m=Message(f.subject.data, f.body.data)
+
+    if not f.validate():
+        return render_template("messages/new.html", form=f)
 
     db.session().add(m)
     db.session().commit()

@@ -1,19 +1,28 @@
 <!DOCTYPE html>
 <html>
-  <head>
+<head>
     <meta charset="utf-8">
-    <title>Miquel's forum</title>
-  </head>
+    <title>Miquels's forum</title>
+</head>
 
-  <body>
-    <ul>
-	  <li><a href="{{ url_for('messages_index') }}">List messages</a></li>
-	  <li><a href="{{ url_for('messages_form') }}">Add a message</a></li>
-    </ul>
-    {% block body %}
-      <p>
-        Content.
-      </p>
-    {% endblock %}
-  </body>
+<body>
+{% if current_user.is_authenticated %}
+<p>
+    Kirjautunut nimellä {{ current_user.name }}<a href="{{ url_for('auth_logout') }}"> Log out</a>
+</p>
+{% else %}
+<a href="{{ url_for('auth_login') }}">Log in</a>
+{% endif %}
+
+<ul>
+    <li><a href="{{ url_for('messages_index') }}">All messages</a></li>
+    <li><a href="{{ url_for('messages_form') }}">Add a message</a></li>
+</ul>
+
+{% block body %}
+<p>
+    Content.
+</p>
+{% endblock %}
+</body>
 </html>
