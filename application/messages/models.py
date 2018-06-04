@@ -9,6 +9,8 @@ class Message(db.Model):
     body=db.Column(db.String(144), nullable=False)
     read = db.Column(db.Boolean, nullable=False)
 
+    account_id = db.Column(db.Integer, db.ForeignKey('account.id'), nullable=False)
+
     def __init__(self, subject, body):
         self.subject = subject
         self.body = body
