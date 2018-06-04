@@ -9,7 +9,6 @@ else:
     app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///forum.db"
     app.config["SQLALCHEMY_ECHO"] = True
 
-# Luodaan db-olio, jota käytetään tietokannan käsittelyyn
 db = SQLAlchemy(app)
 
 from application import views
