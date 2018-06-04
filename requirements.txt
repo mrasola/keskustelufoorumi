@@ -9,3 +9,4 @@ SQLAlchemy==1.2.7
 Werkzeug==0.14.1
 psycopg2==2.7.4
 Flask-Login==0.4.1
+Flask-WTF==0.14.2
