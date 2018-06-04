@@ -14,7 +14,6 @@ class User(db.Model):
 
     messages = db.relationship("Message", backref='account', lazy=True)
 
-
     def __init__(self, name, username, password):
         self.name = name
         self.username = username
