@@ -14,6 +14,14 @@ Writing messages
 Removing/modifying messages  
 Categorizing
 
+### For testing use:
+Username: mrasola or tviivi  
+Password: tuitui or moimoi (respectively)
+
+Note:   
+It is also possible to register as a new user. This can also be used for
+testing, however, making multiple new test accounts is not preferred.
+
 ## Links:
 
 [Link to Heroku](https://desolate-brushlands-10650.herokuapp.com/)
