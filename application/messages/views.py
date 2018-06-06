@@ -36,8 +36,9 @@ def messages_create():
 @app.route("/messages/<message_id>/", methods=["POST"])
 @login_required
 def message_set_read(message_id):
-    m=Message.query.get(message_id)
-    m.read=True
+    m = Message.query.get(message_id)
+    m.read = True
+
     db.session().commit()
 
     return redirect(url_for("messages_index"))
@@ -45,6 +46,7 @@ def message_set_read(message_id):
 
 @app.route("/messages/<message_id>/", methods=["GET"])
 def message_look(message_id):
+
     m=Message.query.get(message_id)
 
     return render_template("messages/lookMessage.html", m=m)
@@ -58,3 +60,4 @@ def message_delete(message_id):
     db.session.commit()
 
     return redirect(url_for("messages_index"))
+

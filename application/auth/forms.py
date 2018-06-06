@@ -2,6 +2,8 @@ from flask_wtf import FlaskForm
 from wtforms import PasswordField, StringField, validators
 
 
+
+
 class LoginForm(FlaskForm):
     username = StringField("Username")
     password = PasswordField("Password")
@@ -16,6 +18,7 @@ class RegistrationForm(FlaskForm):
     password = PasswordField("Password", [validators.Length(min=6), validators.Length(max=20)])
     pw2 = PasswordField("Repeat password", [validators.equal_to("password",
                         message="Passwords did not match! Try again!")])
+
 
     class Meta:
         csrf = False

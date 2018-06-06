@@ -89,6 +89,10 @@ venv/
 ENV/
 env.bak/
 venv.bak/
+<<<<<<< HEAD
+=======
+venv
+>>>>>>> 975cf705515f4b8d433ec5b5b3e995d22ca83d92
 
 # Spyder project settings
 .spyderproject
@@ -103,7 +107,15 @@ venv.bak/
 # mypy
 .mypy_cache/
 
+<<<<<<< HEAD
 # Pycharm stuff
 .idea/
 
 .git
+=======
+# database
+forum.db
+
+# Pycharm stuff
+.idea/
+>>>>>>> 975cf705515f4b8d433ec5b5b3e995d22ca83d92
