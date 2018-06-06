@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+
+{% block body %}
+<table>
+    <tr>
+        <th>Subject</th>
+        <td>{{m.subject}}</td>
+    </tr>
+</table>
+<table>
+    <tr>
+        <th>Text</th>
+        <td>{{ m.body }}</td>
+    </tr>
+</table>
+<table>
+    <tr>
+        <th>Read</th>
+        <td>{{ m.read }}</td>
+    </tr>
+    <td>
+         <form method="POST" action="{{ url_for('message_delete', message_id=m.id) }}">
+	        <input type="submit" value="Delete"/>
+         </form>
+    </td>
+</table>
+
+{% endblock %}

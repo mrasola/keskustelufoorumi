@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Miquels's forum</title>
+</head>
+
+<body>
+{% if current_user.is_authenticated %}
+<p>
+    Kirjautunut nimellä {{ current_user.name }}<a href="{{ url_for('auth_logout') }}"> Log out</a>
+</p>
+{% else %}
+<p>
+    <a href="{{ url_for('auth_login') }}">Log in</a> or
+    <a href="{{ url_for('auth_form') }}">Register</a> as a new user
+</p>
+
+{% endif %}
+
+<ul>
+    <li><a href="{{ url_for('messages_index') }}">All messages</a></li>
+    <li><a href="{{ url_for('messages_form') }}">Add a message</a></li>
+</ul>
+
+{% block body %}
+<p>
+    Content.
+</p>
+{% endblock %}
+</body>
+</html>
