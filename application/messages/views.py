@@ -1,6 +1,6 @@
 from flask_login import login_required, current_user
 from application import app, db
-from flask import render_template, request, url_for, redirect
+from flask import render_template, request, url_for, redirect, flash
 from application.messages.models import Message
 from application.messages.forms import MessageForm
 
@@ -46,10 +46,24 @@ def message_set_read(message_id):
 
 @app.route("/messages/<message_id>/", methods=["GET"])
 def message_look(message_id):
-
     m=Message.query.get(message_id)
 
     return render_template("messages/lookMessage.html", m=m)
+
+
+@app.route("/messages/edit/<message_id>/", methods=["POST", "GET"])
+@login_required
+def message_edit(message_id):
+    m = Message.query.get(message_id)
+    f = MessageForm(request.form, obj=m, subject=m.subject, body=m.body)
+
+    if request.method=="POST" and f.validate():
+        m.subject = f.subject.data; m.body = f.body.data; m.read=False
+        db.session.commit()
+
+        return redirect(url_for("message_look", message_id=m.id))
+
+    return render_template("messages/edit.html", form=f)
 
 
 @app.route("/messages/delete/<message_id>/", methods=["POST", "GET"])

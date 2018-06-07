@@ -23,5 +23,10 @@
 	        <input type="submit" value="Delete"/>
          </form>
     </td>
+    <td>
+         <form method="POST" action="{{ url_for('message_edit', message_id=m.id) }}">
+	        <input type="submit" value="Edit"/>
+         </form>
+    </td>
 <table>
 {% endblock %}
