@@ -1,3 +1,4 @@
+from sqlalchemy import text
 from application import db
 from application.models import Base
 
@@ -27,3 +28,16 @@ class User(Base):
 
     def is_authenticated(self):
         return True
+
+    @staticmethod
+    def users_messages_number():
+        stmt=text("SELECT Account.id, Account.username, COUNT(Message.id) FROM Account"
+                  " LEFT JOIN Message ON Message.account_id = Account.id"
+                  " GROUP BY Account.id")
+        res=db.engine.execute(stmt)
+
+        response=[]
+        for row in res:
+            response.append({"un": row[1], "ms": row[2]})
+
+        return response
