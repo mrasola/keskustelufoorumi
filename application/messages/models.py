@@ -13,7 +13,7 @@ class Message(Base):
         self.body = body
         self.read = False
 
-#uusi liokka
+
 class Category(Base):
     category=db.Column(db.String(144), nullable=False)
     description=db.Column(db.String(144), nullable=False)
