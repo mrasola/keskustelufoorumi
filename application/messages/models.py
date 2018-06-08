@@ -12,3 +12,12 @@ class Message(Base):
         self.subject = subject
         self.body = body
         self.read = False
+
+
+class Category(Base):
+    category=db.Column(db.String(144), nullable=False)
+    description=db.Column(db.String(144), nullable=False)
+
+    def __init__(self, c, d):
+        self.category=c
+        self.category=d
