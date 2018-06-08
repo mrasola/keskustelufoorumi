@@ -51,14 +51,14 @@ def message_look(message_id):
     return render_template("messages/lookMessage.html", m=m)
 
 
-@app.route("/messages/edit/<message_id>/", methods=["POST", "GET"])
+@app.route("/messages/<message_id>/edit/", methods=["POST", "GET"])
 @login_required
 def message_edit(message_id):
     m = Message.query.get(message_id)
-    f = MessageForm(request.form, obj=m, subject=m.subject, body=m.body)
+    f = MessageForm(request.form, obj=m)
 
-    if request.method=="POST" and f.validate():
-        m.subject = f.subject.data; m.body = f.body.data; m.read=False
+    if request.method=="POST" and f.validate_on_submit():
+        f.populate_obj(m); m.read=False
         db.session.commit()
 
         return redirect(url_for("message_look", message_id=m.id))
