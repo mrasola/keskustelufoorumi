@@ -1,12 +1,10 @@
+from sqlalchemy import text
 from application import db
+from application.models import Base
 
 
-class User(db.Model):
+class User(Base):
     __tablename__ = "account"
-
-    id = db.Column(db.Integer, primary_key=True)
-    date_created = db.Column(db.DateTime, default=db.func.current_timestamp())
-    date_modified = db.Column(db.DateTime, default=db.func.current_timestamp(), onupdate=db.func.current_timestamp())
 
     name = db.Column(db.String(144), nullable=False)
     username = db.Column(db.String(144), nullable=False)
@@ -30,3 +28,16 @@ class User(db.Model):
 
     def is_authenticated(self):
         return True
+
+    @staticmethod
+    def users_messages_number():
+        stmt=text("SELECT Account.id, Account.username, COUNT(Message.id) FROM Account"
+                  " LEFT JOIN Message ON Message.account_id = Account.id"
+                  " GROUP BY Account.id")
+        res=db.engine.execute(stmt)
+
+        response=[]
+        for row in res:
+            response.append({"un": row[1], "ms": row[2]})
+
+        return response

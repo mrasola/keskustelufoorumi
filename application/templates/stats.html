@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+
+{% block body %}
+
+{% if ms is defined %}
+<p>
+    The most active users:
+</p>
+
+<ul>
+    <p>Username Messages</p>
+    {% for user in ms %}
+    <li>
+        {{user.un}} {{user.ms}}
+    </li>
+    {% endfor %}
+</ul>
+
+{% endif %}
+
+{% endblock %}

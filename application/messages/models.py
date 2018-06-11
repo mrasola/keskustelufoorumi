@@ -1,10 +1,7 @@
 from application import db
+from application.models import Base
 
-class Message(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    date_created = db.Column(db.DateTime, default=db.func.current_timestamp())
-    date_modified = db.Column(db.DateTime, default=db.func.current_timestamp(), onupdate=db.func.current_timestamp())
-
+class Message(Base):
     subject = db.Column(db.String(144), nullable=False)
     body=db.Column(db.String(144), nullable=False)
     read = db.Column(db.Boolean, nullable=False)
@@ -15,3 +12,12 @@ class Message(db.Model):
         self.subject = subject
         self.body = body
         self.read = False
+
+
+class Category(Base):
+    category=db.Column(db.String(144), nullable=False)
+    description=db.Column(db.String(144), nullable=False)
+
+    def __init__(self, c, d):
+        self.category=c
+        self.category=d
