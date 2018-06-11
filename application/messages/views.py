@@ -1,7 +1,7 @@
 from flask_login import login_required, current_user
 from application import app, db
 from flask import render_template, request, url_for, redirect, flash
-from application.messages.models import Message
+from application.messages.models import Message, Category
 from application.messages.forms import MessageForm
 
 
@@ -26,6 +26,10 @@ def messages_create():
 
     m=Message(f.subject.data, f.body.data)
     m.account_id=current_user.id
+
+    for c in f.categories.data:
+        cat=Category.query.filter_by(category=c[1]).first()
+        m.categories.append(cat)
 
     db.session().add(m)
     db.session().commit()
