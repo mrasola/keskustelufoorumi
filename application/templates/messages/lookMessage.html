@@ -15,6 +15,14 @@
 </table>
 <table>
     <tr>
+        <th>Categories</th>
+        {% for c in m.categories %}
+            <td>{{ c.name }}</td>
+        {% endfor %}
+    </tr>
+</table>
+<table>
+    <tr>
         <th>Read</th>
         <td>{{ m.read }}</td>
     </tr>

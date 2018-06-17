@@ -16,10 +16,10 @@ def messages_form():
     return render_template("messages/new.html", form=MessageForm())
 
 
-@app.route("/messages/", methods=["POST"])
+@app.route("/messages/new", methods=["POST"])
 @login_required
 def messages_create():
-    f=MessageForm(request.form)
+    f=MessageForm()
 
     if not f.validate():
         return render_template("messages/new.html", form=f)
@@ -28,7 +28,7 @@ def messages_create():
     m.account_id=current_user.id
 
     for c in f.categories.data:
-        cat=Category.query.filter_by(category=c[1]).first()
+        cat=Category.query.get(c)
         m.categories.append(cat)
 
     db.session().add(m)
@@ -55,17 +55,25 @@ def message_look(message_id):
     return render_template("messages/lookMessage.html", m=m)
 
 
-@app.route("/messages/<message_id>/edit/", methods=["POST", "GET"])
+@app.route("/messages/edit/<message_id>/", methods=["POST", "GET"])
 @login_required
 def message_edit(message_id):
     m = Message.query.get(message_id)
-    f = MessageForm(request.form, obj=m)
+    f = MessageForm()
 
-    if request.method=="POST" and f.validate_on_submit():
-        f.populate_obj(m); m.read=False
-        db.session.commit()
+    if request.method=="GET":
+        f.subject.data=m.subject
+        f.body.data=m.body
+        f.categories.data=[c.category_id for c in m.categories]
 
-        return redirect(url_for("message_look", message_id=m.id))
+    if f.validate_on_submit():
+        if f.subject.data is None:
+            message=MessageForm()
+            message.subject.data=f.subject.data; message.body.data=f.body.data
+            message.categories.data=f.categories.data
+            db.session.add(message)
+            db.session.commit()
+            return url_for("messages/edit.html")
 
     return render_template("messages/edit.html", form=f)
 

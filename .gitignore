@@ -108,5 +108,5 @@ venv.bak/
 .idea/
 
 # database
+application/forum.db
 forum.db
-
