@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block body %}
-<form method="POST" action="{{ url_for('messages_create') }}">
+<t method="POST" action="{{ url_for('messages_create') }}">
     <table>
         <tr>
             <td>{{ form.subject.label }}</td>
@@ -53,5 +53,5 @@
                 <input type="submit" value="Add a new message"/>
             </td>
         </tr>
-</form>
+    </table>
 {% endblock %}

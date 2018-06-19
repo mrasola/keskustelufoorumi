@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+
+{% block body %}
+<table>
+    <tr>
+        <th>Category</th>
+        <td>{{c.name}}</td>
+    </tr>
+</table>
+<table>
+    <tr>
+        <th>Description</th>
+        <td>{{ c.description }}</td>
+    </tr>
+</table>
+<table>
+    <td>
+         <form method="POST" action="{{ url_for('category_delete', category_id=c.id) }}">
+	        <input type="submit" value="Delete"/>
+         </form>
+    </td>
+</table>
+{% endblock %}

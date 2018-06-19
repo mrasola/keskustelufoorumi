@@ -1,5 +1,5 @@
 from flask_wtf import FlaskForm
-from application.messages.models import Category
+from application.categories.models import Category
 from wtforms import StringField, validators, widgets, SelectMultipleField, TextAreaField
 
 
@@ -15,8 +15,11 @@ class MessageForm(FlaskForm):
         super(MessageForm, self).__init__()
         self.categories.choices = [(c.id, c.name) for c in Category.query.all()]
 
-    #def set_choices():
-        #return [(c.id, c.name) for c in Category.query.all()]
+    # def set_choices(self):
+    #     self.categories.choices=[(c.id, c.name) for c in Category.query.all()]
 
     class Meta:
         csrf = False
+
+
+
