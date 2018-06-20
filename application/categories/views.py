@@ -39,27 +39,15 @@ def category_look(category_id):
     return render_template("categories/look.html", c=c)
 
 
-# @app.route("/category/edit/<category_id>/", methods=["POST", "GET"])
-# @login_required
-# def cetegory_edit(category_id):
-#     c = Message.query.get(category_id)
-#     f = MessageForm()
-#
-#     if request.method=="GET":
-#         f.subject.data=c.subject
-#         f.body.data=c.body
-#         f.categories.data=[c.category_id for c in c.categories]
-#
-#     if f.validate_on_submit():
-#         if f.subject.data is None:
-#             message=MessageForm()
-#             message.subject.data=f.subject.data; message.body.data=f.body.data
-#             message.categories.data=f.categories.data
-#             db.session.add(message)
-#             db.session.commit()
-#             return url_for("categories/edit.html")
-#
-#     return render_template("categories/edit.html", form=f)
+@app.route("/category/edit/<category_id>/", methods=["POST", "GET"])
+@login_required
+def cetegory_edit(category_id):
+    c = Category.query.get(category_id)
+    f = CategoryForm()
+
+
+
+    return render_template("categories/edit.html", form=f)
 
 
 @app.route("/category/delete/<category_id>/", methods=["POST", "GET"])

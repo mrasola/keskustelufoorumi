@@ -62,19 +62,8 @@ def message_edit(message_id):
     m = Message.query.get(message_id)
     f = MessageForm()
 
-    if request.method=="GET":
-        f.subject.data=m.subject
-        f.body.data=m.body
-        f.categories.data=[c.category_id for c in m.categories]
-
-    if f.validate_on_submit():
-        if f.subject.data is None:
-            message=MessageForm()
-            message.subject.data=f.subject.data; message.body.data=f.body.data
-            message.categories.data=f.categories.data
-            db.session.add(message)
-            db.session.commit()
-            return url_for("messages/edit.html")
+    if not f.validate():
+        return render_template("messages/new.html", form=f)
 
     return render_template("messages/edit.html", form=f)
 
