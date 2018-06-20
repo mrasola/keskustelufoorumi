@@ -1,7 +1,8 @@
 from flask_login import login_required, current_user
 from application import app, db
 from flask import render_template, request, url_for, redirect, flash
-from application.messages.models import Message, Category
+from application.messages.models import Message
+from application.categories.models import Category
 from application.messages.forms import MessageForm
 
 
@@ -86,4 +87,3 @@ def message_delete(message_id):
     db.session.commit()
 
     return redirect(url_for("messages_index"))
-
