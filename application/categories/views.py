@@ -10,13 +10,13 @@ def categories_index():
     return render_template("categories/list.html", cs=Category.query.all())
 
 
-@app.route("/categories/new")
+@app.route("/categories/new/")
 @login_required
 def categories_form():
     return render_template("categories/new.html", form=CategoryForm())
 
 
-@app.route("/categories/new", methods=["POST"])
+@app.route("/categories/new", methods=["POST", "GET"])
 @login_required
 def categories_create():
     f=CategoryForm(request.form)

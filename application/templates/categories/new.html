@@ -2,7 +2,7 @@
 
 {% block body %}
 
-<t method="POST" action="{{ url_for('categories_create') }}">
+<form method="POST" action="{{ url_for('categories_create') }}">
     <table>
         <tr>
             <td>{{ form.name.label }}</td>
@@ -33,5 +33,5 @@
             </td>
         </tr>
     </table>
-</t>
+</form>
 {% endblock %}

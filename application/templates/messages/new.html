@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block body %}
-<t method="POST" action="{{ url_for('messages_create') }}">
+<form method="POST" action="{{ url_for('messages_create') }}">
     <table>
         <tr>
             <td>{{ form.subject.label }}</td>
@@ -48,5 +48,5 @@
             </td>
         </tr>
     </table>
-</t>
+</form>
 {% endblock %}

@@ -13,10 +13,10 @@
     </tr>
     {% endfor %}
 
-    <td>
-        <form method="POST" action="{{ url_for('categories_form') }}">
-            <input type="submit" value="Add a new category"/>
-        </form>
-    </td>
 </table>
+
+<li type="button">
+    <a class="nav-link" href="{{ url_for('categories_form') }} ">Add a new category</a>
+</li>
+
 {% endblock %}

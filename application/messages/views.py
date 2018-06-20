@@ -32,8 +32,8 @@ def messages_create():
         cat=Category.query.get(c)
         m.categories.append(cat)
 
-    db.session().add(m)
-    db.session().commit()
+    db.session.add(m)
+    db.session.commit()
 
     return redirect(url_for("messages_index"))
 
