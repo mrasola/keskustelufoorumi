@@ -16,7 +16,7 @@ def categories_form():
     return render_template("categories/new.html", form=CategoryForm())
 
 
-@app.route("/categories/newa", methods=["POST"])
+@app.route("/categories/new", methods=["POST"])
 @login_required
 def categories_create():
     f=CategoryForm(request.form)

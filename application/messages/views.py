@@ -17,7 +17,7 @@ def messages_form():
     return render_template("messages/new.html", form=MessageForm())
 
 
-@app.route("/messages/newa", methods=["POST"])
+@app.route("/messages/new", methods=["POST"])
 @login_required
 def messages_create():
     f=MessageForm()
