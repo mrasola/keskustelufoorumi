@@ -74,7 +74,7 @@ def message_edit(message_id):
         return render_template("messages/edit.html", form=f)
 
     m=Message.query.get(message_id)
-    m.body=f.body.data; m.subject=f.subject.data
+    m.body=f.body.data; m.subject=f.subject.data; m.read=False
 
     for c in m.categories:
         if not f.categories.data.__contains__(c.id):
