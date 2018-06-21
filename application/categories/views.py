@@ -41,13 +41,22 @@ def category_look(category_id):
 
 @app.route("/category/edit/<category_id>/", methods=["POST", "GET"])
 @login_required
-def cetegory_edit(category_id):
-    c = Category.query.get(category_id)
-    f = CategoryForm()
+def category_edit(category_id):
+    c=Category.query.get(category_id)
 
+    if c:
+        form=CategoryForm(formdata=request.form, obj=c);
 
+        if request.method=='POST' and form.validate():
+            c.name=form.name.data; c.description=form.description.data
+            db.session.commit()
 
-    return render_template("categories/edit.html", form=f)
+            flash('Album updated successfully!')
+            return redirect("categories_index")
+
+        return render_template("categories/new.html", form=form)
+    else:
+        return 'Error loading #{id}'.format(id=id)
 
 
 @app.route("/category/delete/<category_id>/", methods=["POST", "GET"])

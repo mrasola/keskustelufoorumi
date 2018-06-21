@@ -19,5 +19,10 @@
 	        <input type="submit" value="Delete"/>
          </form>
     </td>
+    <td>
+         <form method="POST" action="{{ url_for('category_edit', category_id=c.id) }}">
+	        <input type="submit" value="Edit"/>
+         </form>
+    </td>
 </table>
 {% endblock %}

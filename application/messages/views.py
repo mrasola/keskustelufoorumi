@@ -63,9 +63,9 @@ def message_edit(message_id):
     f = MessageForm()
 
     if not f.validate():
-        return render_template("messages/new.html", form=f)
+        return render_template("messages/edit.html", form=f)
 
-    return render_template("messages/edit.html", form=f)
+    return redirect(url_for("messages_index"))
 
 
 @app.route("/messages/delete/<message_id>/", methods=["POST", "GET"])
