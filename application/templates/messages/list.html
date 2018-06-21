@@ -9,12 +9,15 @@
     {% for m in ms %}
     <tr>
       <td>
-          <li><a href="{{ url_for('message_look', message_id=m.id) }}">{{ m.subject }}</a></li>
+          <li>
+            <a href="{{ url_for('message_look', message_id=m.id) }}">{{ m.subject }}</a>
+          </li>
       </td>
       <td>{{ m.read }}</td>
       <td>
          <form method="POST" action="{{ url_for('message_set_read', message_id=m.id) }}">
-	        <input type="submit" value="Set as read"/>
+	        <input class="btn btn-primary" role="button"
+                   type="submit" value="Set as read"/>
          </form>
       </td>
     </tr>

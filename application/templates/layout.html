@@ -33,7 +33,7 @@
             <a href="{{ url_for('auth_logout') }}">Hello {{ current_user.name }} -- Logout</a>
             {% else %}
             <a href="{{ url_for('auth_login') }}">Login</a><p>&ensp;</p>
-            <a href="{{ url_for('auth_register') }}">Register</a>
+            <a href="{{ url_for('auth_form') }}">Register</a>
             {% endif %}
         </div>
     </div>

@@ -33,7 +33,7 @@ def auth_form():
     return render_template("auth/registrationform.html", form=RegistrationForm())
 
 
-@app.route("/auth/", methods=["POST", "GET"])
+@app.route("/auth/register", methods=["POST", "GET"])
 def auth_register():
     f=RegistrationForm(request.form)
 
