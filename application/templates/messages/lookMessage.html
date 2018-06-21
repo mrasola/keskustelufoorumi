@@ -28,13 +28,16 @@
     </tr>
     <td>
          <form method="POST" action="{{ url_for('message_delete', message_id=m.id) }}">
-	        <input type="submit" value="Delete"/>
+	        <input class="btn btn-primary" role="button" type="submit" value="Delete"/>
          </form>
     </td>
     <td>
-         <form method="POST" action="{{ url_for('message_edit', message_id=m.id) }}">
-	        <input type="submit" value="Edit"/>
-         </form>
+        <a class="btn btn-primary" role="button"
+           href="{{ url_for('message_edit_form', message_id=m.id) }}">Edit</a>
+    </td>
+    <td>
+        <a class="btn btn-primary" role="button"
+           href="{{ url_for('messages_index') }}">Go back</a>
     </td>
 </table>
 {% endblock %}

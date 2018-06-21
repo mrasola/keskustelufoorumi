@@ -39,24 +39,28 @@ def category_look(category_id):
     return render_template("categories/look.html", c=c)
 
 
-@app.route("/category/edit/<category_id>/", methods=["POST", "GET"])
+@app.route("/categories/<category_id>/edit/")
+@login_required
+def category_edit_form(category_id):
+    f=CategoryForm(); c=Category.query.get(category_id);
+    f.name.default=c.name; f.description.default=c.description; f.process()
+    return render_template("categories/edit.html", form=f, c=c)
+
+
+@app.route("/category/<category_id>/edit", methods=["POST", "GET"])
 @login_required
 def category_edit(category_id):
+    f=CategoryForm(request.form)
+
+    if not f.validate():
+        return render_template("categories/edit.html", form=f)
+
     c=Category.query.get(category_id)
+    c.description=f.description.data; c.name=f.name.data
 
-    if c:
-        form=CategoryForm(formdata=request.form, obj=c);
+    db.session().commit()
 
-        if request.method=='POST' and form.validate():
-            c.name=form.name.data; c.description=form.description.data
-            db.session.commit()
-
-            flash('Album updated successfully!')
-            return redirect("categories_index")
-
-        return render_template("categories/new.html", form=form)
-    else:
-        return 'Error loading #{id}'.format(id=id)
+    return redirect(url_for("categories_index"))
 
 
 @app.route("/category/delete/<category_id>/", methods=["POST", "GET"])

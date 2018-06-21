@@ -6,8 +6,6 @@
         <th>Category</th>
         <td>{{c.name}}</td>
     </tr>
-</table>
-<table>
     <tr>
         <th>Description</th>
         <td>{{ c.description }}</td>
@@ -15,14 +13,18 @@
 </table>
 <table>
     <td>
-         <form method="POST" action="{{ url_for('category_delete', category_id=c.id) }}">
-	        <input type="submit" value="Delete"/>
-         </form>
+        <form method="POST" action="{{ url_for('category_delete', category_id=c.id) }}">
+            <input class="btn btn-primary" role="button" type="submit" value="Delete"/>
+        </form>
     </td>
     <td>
-         <form method="POST" action="{{ url_for('category_edit', category_id=c.id) }}">
-	        <input type="submit" value="Edit"/>
-         </form>
+        <a class="btn btn-primary" role="button"
+           href="{{ url_for('category_edit_form', category_id=c.id) }} ">Edit</a>
+    </td>
+    <td>
+        <a class="btn btn-primary" role="button"
+           href="{{ url_for('categories_index') }}">Go back</a>
     </td>
 </table>
+
 {% endblock %}

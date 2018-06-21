@@ -56,14 +56,35 @@ def message_look(message_id):
     return render_template("messages/lookMessage.html", m=m)
 
 
-@app.route("/messages/edit/<message_id>/", methods=["POST", "GET"])
+@app.route("/messagess/<message_id>/edit/")
+@login_required
+def message_edit_form(message_id):
+    f=MessageForm(); m=Message.query.get(message_id);
+    f.subject.default=m.subject; f.body.default=m.body; f.process()
+
+    return render_template("messages/edit.html", form=f, m=m)
+
+
+@app.route("/message/<message_id>/edit", methods=["POST", "GET"])
 @login_required
 def message_edit(message_id):
-    m = Message.query.get(message_id)
-    f = MessageForm()
+    f=MessageForm()
 
     if not f.validate():
         return render_template("messages/edit.html", form=f)
+
+    m=Message.query.get(message_id)
+    m.body=f.body.data; m.subject=f.subject.data
+
+    for c in m.categories:
+        if not f.categories.data.__contains__(c.id):
+            m.categories.remove(c)
+
+    for c in f.categories.data:
+        cat=Category.query.get(c)
+        m.categories.append(cat)
+
+    db.session.commit()
 
     return redirect(url_for("messages_index"))
 
