@@ -24,6 +24,7 @@ Adding/editing/removing of categories for admins
 Searching messages and users  
 Answering to a thread (message)  
 Better interactivity: helping pop-up messages for user etc.   
+Password protection
 
 ### For testing use:
 Username: mrasola or tviivi  
@@ -40,3 +41,12 @@ testing, however, making multiple new test accounts is not preferred.
 [Link to Database table](https://github.com/mrasola/keskustelufoorumi/blob/master/documentation/DB_table.md)
 
 [Link to user stories](https://github.com/mrasola/keskustelufoorumi/blob/master/documentation/UserStories.md)
+
+[Link to User stories](https://github.com/mrasola/keskustelufoorumi/blob/master/documentation/UserStories.md)
+
+[Link to installation instructions](https://github.com/mrasola/keskustelufoorumi/blob/master/documentation/installation.md)
+
+[Link to user manual]()
+
+
+
