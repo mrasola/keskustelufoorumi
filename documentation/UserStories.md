@@ -51,7 +51,7 @@
 - User can only edit his/her own messages! (Excluding admins)
 - Do the "Read messages" operations from above
 - Click "Delete" button at the bottom of the page
-- Message will be delted right away and completely!
+- Message will be deleted right away and completely!
 
 #### Logged in as admin
 
@@ -77,3 +77,9 @@ to get them "inside" the app.
 - Edit the fields to your choosing abiding to the validations
 - Click "Submit changes". Success redirects to the "Categories" view and failure 
 back to the form with an error message.
+
+###### Delete category
+
+- Do the "Look categories" operations from above
+- Click "Delete" button at the bottom of the page
+- Category will be deleted right away and completely!
