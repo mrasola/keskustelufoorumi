@@ -1,18 +1,29 @@
 # Discussion Forum
 
-This is a simple discussion forum. The forum has basic operations such
-as logging in, opening a new thread, answering to thread, modifying 
-a message, reading messages etc. It will also be possible to search 
-messages.
+This is a simple discussion forum. The forum has (will have) basic 
+operations such as logging in, opening a new thread, answering to thread,
+modifying a message, reading messages etc. It will also be possible to 
+search messages. There are categories that can be assigned to a message.
+It will be possible to filter messages by category. Categories are managed by 
+administrators. Administrators can delete and modify any message if 
+necessary. 
 
-## Functionality:
+## Existing functionality:
 
 Signing in and registration   
-Opening a thread  
-Searching messages (and maybe users)    
+Normal users and admins  
+Admins cannot just register: admin rights are given manually  
+Opening a thread (making a message)   
 Writing messages  
-Removing/modifying messages  
-Categorizing
+Removing/modifying messages    
+Categorizing messages  
+Adding/editing/removing of categories for admins
+
+## To be implemented  
+
+Searching messages and users  
+Answering to a thread (message)  
+Better interactivity: helping pop-up messages for user etc.   
 
 ### For testing use:
 Username: mrasola or tviivi  
