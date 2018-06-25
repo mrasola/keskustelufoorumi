@@ -1,6 +1,15 @@
 {% extends "layout.html" %}
 
 {% block body %}
+
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+    {% for message in messages %}
+        {{ message }}
+    {% endfor %}
+{% endif %}
+{% endwith %}
+
 {{ error }}
 <form method="POST" action="{{ url_for('auth_login') }}">
     <table>
