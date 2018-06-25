@@ -35,7 +35,7 @@ VALUES (value1, value2, value3, "USER");
 ###### Evince the statistics
 
 - Click "Statistics" in the navigation bar 
-- Complex SQL queries given in [here]()
+- Complex SQL queries given in [here](https://github.com/mrasola/keskustelufoorumi/blob/master/documentation/queries.md)
 
 #### Logged in as normal user
 

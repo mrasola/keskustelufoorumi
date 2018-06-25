@@ -54,7 +54,7 @@ testing, however, making multiple new test accounts is not preferred.
 
 [Link to user manual](https://github.com/mrasola/keskustelufoorumi/blob/master/documentation/userManual.md)
 
-[Link to development ideas]()
+[Link to development ideas](https://github.com/mrasola/keskustelufoorumi/blob/master/documentation/shortages.md)
 
 
 
