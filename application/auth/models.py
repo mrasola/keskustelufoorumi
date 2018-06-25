@@ -22,10 +22,12 @@ class User(Base):
     def get_id(self):
         return self.id
 
-    def is_active(self):
+    @staticmethod
+    def is_active():
         return True
 
-    def is_anonymous(self):
+    @staticmethod
+    def is_anonymous():
         return False
 
     @property
@@ -33,6 +35,8 @@ class User(Base):
         return True
 
     def roles(self):
+        if self.urole=="ADMIN":
+            return ["ADMIN", "USER"]
         return ["USER"]
 
     @staticmethod

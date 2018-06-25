@@ -11,13 +11,13 @@ def categories_index():
 
 
 @app.route("/categories/new/")
-@login_required(role="USER")
+@login_required(role="ADMIN")
 def categories_form():
     return render_template("categories/new.html", form=CategoryForm())
 
 
 @app.route("/categories/new", methods=["POST", "GET"])
-@login_required(role="USER")
+@login_required(role="ADMIN")
 def categories_create():
     f=CategoryForm(request.form)
 
@@ -41,7 +41,7 @@ def category_look(category_id):
 
 
 @app.route("/categories/<category_id>/edit/")
-@login_required(role="USER")
+@login_required(role="ADMIN")
 def category_edit_form(category_id):
     f=CategoryForm(); c=Category.query.get(category_id);
     f.name.default=c.name; f.description.default=c.description; f.process()
@@ -49,7 +49,7 @@ def category_edit_form(category_id):
 
 
 @app.route("/category/<category_id>/edit", methods=["POST", "GET"])
-@login_required(role="USER")
+@login_required(role="ADMIN")
 def category_edit(category_id):
     f=CategoryForm(request.form)
 
@@ -65,7 +65,7 @@ def category_edit(category_id):
 
 
 @app.route("/category/delete/<category_id>/", methods=["POST", "GET"])
-@login_required(role="USER")
+@login_required(role="ADMIN")
 def category_delete(category_id):
     c=Category.query.get(category_id)
     db.session.delete(c)

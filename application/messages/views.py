@@ -1,5 +1,5 @@
 from flask_login import current_user
-from application import app, db, login_required
+from application import app, db, login_required, login_manager
 from flask import render_template, request, url_for, redirect, flash
 from application.messages.models import Message
 from application.categories.models import Category
@@ -59,7 +59,11 @@ def message_look(message_id):
 @app.route("/messagess/<message_id>/edit/")
 @login_required(role="USER")
 def message_edit_form(message_id):
-    f=MessageForm(); m=Message.query.get(message_id);
+    f=MessageForm(); m=Message.query.get(message_id)
+
+    if current_user.id!=m.account_id and not current_user.roles().__contains__("ADMIN"):
+        return login_manager.unauthorized()
+
     f.subject.default=m.subject; f.body.default=m.body; f.process()
 
     return render_template("messages/edit.html", form=f, m=m)
