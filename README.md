@@ -10,27 +10,33 @@ necessary.
 
 ## Existing functionality:
 
-Signing in and registration   
-Normal users and admins  
-Admins cannot just register: admin rights are given manually  
-Opening a thread (making a message)   
-Writing messages  
-Removing/modifying messages    
-Categorizing messages  
-Adding/editing/removing of categories for admins
+- Signing in and registration   
+- Normal users and admins  
+- Admins cannot just register: admin rights are given manually  
+- Opening a thread (making a message)   
+- Writing messages  
+- Removing/modifying messages    
+- Categorizing messages  
+- Adding/editing/removing of categories for admins
 
-## To be implemented  
+## To be implemented:  
 
-Searching messages and users  
-Answering to a thread (message)  
-Better interactivity: helping pop-up messages for user etc.   
-Password protection
+- Searching messages and users  
+- Answering to a thread (message)  
+- Possibility for figures?
+- Better interactivity: helping pop-up messages for user etc.   
 
 ### For testing use:
-Username: mrasola or tviivi  
-Password: tuitui or moimoi (respectively)
 
-Note:   
+#### Normal user:
+Username: tviivi  
+Password: moimoi 
+
+#### Admin:
+Username: miquel  
+Password: tuitui 
+
+###### Note:   
 It is also possible to register as a new user. This can also be used for
 testing, however, making multiple new test accounts is not preferred.
 
@@ -46,7 +52,10 @@ testing, however, making multiple new test accounts is not preferred.
 
 [Link to installation instructions](https://github.com/mrasola/keskustelufoorumi/blob/master/documentation/installation.md)
 
-[Link to user manual]()
+[Link to user manual](https://github.com/mrasola/keskustelufoorumi/blob/master/documentation/userManual.md)
+
+[Link to development ideas]()
+
 
 
 
