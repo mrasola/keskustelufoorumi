@@ -2,6 +2,8 @@
 
 ### Linux environment
 
+*For now the installation instruction is only for Linux* 
+
 ##### Cloning from git to local machine
 
 You should have git in use. Clone the project from github by using the command in terminal:
