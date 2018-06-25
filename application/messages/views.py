@@ -53,7 +53,7 @@ def message_set_read(message_id):
 def message_look(message_id):
     m=Message.query.get(message_id)
 
-    return render_template("messages/lookMessage.html", m=m)
+    return render_template("messages/look.html", m=m)
 
 
 @app.route("/messagess/<message_id>/edit/")

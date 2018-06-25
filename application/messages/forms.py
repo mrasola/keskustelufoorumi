@@ -15,9 +15,6 @@ class MessageForm(FlaskForm):
         super(MessageForm, self).__init__()
         self.categories.choices = [(c.id, c.name) for c in Category.query.all()]
 
-    # def set_choices(self):
-    #     self.categories.choices=[(c.id, c.name) for c in Category.query.all()]
-
     class Meta:
         csrf = False
 
