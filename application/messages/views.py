@@ -81,8 +81,7 @@ def message_edit(message_id):
     m.body=f.body.data; m.subject=f.subject.data; m.read=False
 
     for c in m.categories:
-        if not f.categories.data.__contains__(c.id):
-            m.categories.remove(c)
+        m.categories.remove(c)
 
     for c in f.categories.data:
         cat=Category.query.get(c)
