@@ -33,11 +33,14 @@ class User(Base):
     def users_messages_number():
         stmt=text("SELECT Account.id, Account.username, COUNT(Message.id) FROM Account"
                   " LEFT JOIN Message ON Message.account_id = Account.id"
-                  " GROUP BY Account.id")
+                  " GROUP BY Account.id ORDER BY COUNT(Message.id) DESC")
         res=db.engine.execute(stmt)
 
         response=[]
+        i=0
         for row in res:
             response.append({"un": row[1], "ms": row[2]})
+            i+=1
+            if i==10: break
 
         return response

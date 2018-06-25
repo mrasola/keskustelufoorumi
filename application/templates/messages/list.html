@@ -1,26 +1,31 @@
 {% extends "layout.html" %}
 
 {% block body %}
-  <table>
+<table>
     <tr>
-      <th>Message</th>
-      <th>Read</th>
+        <a class="btn btn-primary" role="button"
+           href="{{ url_for('messages_form') }} ">Add a new message</a>
+    </tr>
+    <p><br></p>
+    <tr>
+        <th>Message</th>
+        <th>Read</th>
     </tr>
     {% for m in ms %}
     <tr>
-      <td>
-          <li>
-            <a href="{{ url_for('message_look', message_id=m.id) }}">{{ m.subject }}</a>
-          </li>
-      </td>
-      <td>{{ m.read }}</td>
-      <td>
-         <form method="POST" action="{{ url_for('message_set_read', message_id=m.id) }}">
-	        <input class="btn btn-primary" role="button"
-                   type="submit" value="Set as read"/>
-         </form>
-      </td>
+        <td>
+            <li>
+                <a href="{{ url_for('message_look', message_id=m.id) }}">{{ m.subject }}</a>
+            </li>
+        </td>
+        <td>{{ m.read }}</td>
+        <td>
+            <form method="POST" action="{{ url_for('message_set_read', message_id=m.id) }}">
+                <input class="btn btn-primary" role="button"
+                       type="submit" value="Set as read"/>
+            </form>
+        </td>
     </tr>
     {% endfor %}
-  </table>
+</table>
 {% endblock %}

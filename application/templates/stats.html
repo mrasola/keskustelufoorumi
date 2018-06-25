@@ -3,18 +3,52 @@
 {% block body %}
 
 {% if ms is defined %}
-<p>
-    The most active users:
-</p>
 
-<ul>
-    <p>Username Messages</p>
-    {% for user in ms %}
-    <li>
-        {{user.un}} {{user.ms}}
-    </li>
-    {% endfor %}
-</ul>
+<div class="container">
+    <h2>The most active users</h2>
+    <p>This table shows the ten users with most messages.</p>
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>Username</th>
+            <th>Number of messages</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for u in ms %}
+        <tr>
+            <td>{{ u.un }}</td>
+            <td>{{ u.ms }}</td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+{% endif %}
+
+{% if cats is defined %}
+
+<div class="container">
+    <h2>Categories with most messages</h2>
+    <p>This table shows the ten most used categories and the number of messages under them.</p>
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>Category</th>
+            <th>Number of messages</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for c in cats %}
+        <tr>
+            <td>{{ c.cat }}</td>
+            <td>{{ c.ms }}</td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
 
 {% endif %}
 
