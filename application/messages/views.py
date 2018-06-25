@@ -1,5 +1,5 @@
-from flask_login import login_required, current_user
-from application import app, db
+from flask_login import current_user
+from application import app, db, login_required
 from flask import render_template, request, url_for, redirect, flash
 from application.messages.models import Message
 from application.categories.models import Category
@@ -12,13 +12,13 @@ def messages_index():
 
 
 @app.route("/messages/new/")
-@login_required
+@login_required(role="USER")
 def messages_form():
     return render_template("messages/new.html", form=MessageForm())
 
 
 @app.route("/messages/new", methods=["POST"])
-@login_required
+@login_required(role="USER")
 def messages_create():
     f=MessageForm()
 
@@ -39,7 +39,7 @@ def messages_create():
 
 
 @app.route("/messages/<message_id>/", methods=["POST"])
-@login_required
+@login_required(role="USER")
 def message_set_read(message_id):
     m = Message.query.get(message_id)
     m.read = True
@@ -57,7 +57,7 @@ def message_look(message_id):
 
 
 @app.route("/messagess/<message_id>/edit/")
-@login_required
+@login_required(role="USER")
 def message_edit_form(message_id):
     f=MessageForm(); m=Message.query.get(message_id);
     f.subject.default=m.subject; f.body.default=m.body; f.process()
@@ -66,7 +66,7 @@ def message_edit_form(message_id):
 
 
 @app.route("/message/<message_id>/edit", methods=["POST", "GET"])
-@login_required
+@login_required(role="USER")
 def message_edit(message_id):
     f=MessageForm()
 
@@ -90,7 +90,7 @@ def message_edit(message_id):
 
 
 @app.route("/messages/delete/<message_id>/", methods=["POST", "GET"])
-@login_required
+@login_required(role="USER")
 def message_delete(message_id):
     m=Message.query.get(message_id)
     db.session.delete(m)

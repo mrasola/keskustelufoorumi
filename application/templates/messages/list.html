@@ -6,26 +6,47 @@
         <a class="btn btn-primary" role="button"
            href="{{ url_for('messages_form') }} ">Add a new message</a>
     </tr>
-    <p><br></p>
-    <tr>
-        <th>Message</th>
-        <th>Read</th>
-    </tr>
-    {% for m in ms %}
-    <tr>
-        <td>
-            <li>
-                <a href="{{ url_for('message_look', message_id=m.id) }}">{{ m.subject }}</a>
-            </li>
-        </td>
-        <td>{{ m.read }}</td>
-        <td>
-            <form method="POST" action="{{ url_for('message_set_read', message_id=m.id) }}">
-                <input class="btn btn-primary" role="button"
-                       type="submit" value="Set as read"/>
-            </form>
-        </td>
-    </tr>
-    {% endfor %}
 </table>
+<p><br></p>
+
+{% if ms is defined %}
+
+<div class="container">
+    <h2>Messages</h2>
+    <p>All messages on the forum.</p>
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>Subject</th>
+            <th>Status</th>
+            <th>Read</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for m in ms %}
+        <tr>
+            <td><a href="{{ url_for('message_look', message_id=m.id) }}">{{ m.subject }}</a></td>
+
+            <td>
+                {% if m.read %}
+                <p>Read</p>
+                {% else %}
+                <p>Not read</p>
+                {% endif %}
+            </td>
+
+            <td>
+                <form method="POST" action="{{ url_for('message_set_read', message_id=m.id) }}">
+                    <input class="btn btn-primary" role="button"
+                           type="submit" value="Set as read"/>
+                </form>
+            </td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+{% endif %}
+
 {% endblock %}

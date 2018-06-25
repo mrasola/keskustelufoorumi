@@ -1,35 +1,32 @@
 {% extends "layout.html" %}
 
 {% block body %}
-<table>
-    <tr>
-        <th>Subject</th>
-        <td>{{m.subject}}</td>
-    </tr>
-</table>
-<table>
-    <tr>
-        <th>Text</th>
-        <td>{{ m.body }}</td>
-    </tr>
-</table>
-<table>
-    <tr>
-        <th>Categories</th>
-        {% for c in m.categories %}
-            <td>{{ c.name }}</td>
+
+<body>
+<div class="card">
+    <div class="card-header bg-dark text-white"><h4>{{ m.subject }}</h4></div>
+    <div class="card-body">{{ m.body }}</div>
+    <div class="card-footer">
+
+        <p style="display:inline"><small><b>Categories:</b></small></p>
+        {% for m in m.categories %}
+        <small><td>{{ m.name }},</td></small>
         {% endfor %}
-    </tr>
-</table>
+
+        {% if m.read %}
+        <p><small><b>Status</b> Read</small></p>
+        {% else %}
+        <p><small><b>Status</b> Not read</small></p>
+        {% endif %}
+    </div>
+</div>
+</body>
+
 <table>
-    <tr>
-        <th>Read</th>
-        <td>{{ m.read }}</td>
-    </tr>
     <td>
-         <form method="POST" action="{{ url_for('message_delete', message_id=m.id) }}">
-	        <input class="btn btn-primary" role="button" type="submit" value="Delete"/>
-         </form>
+        <form method="POST" action="{{ url_for('message_delete', message_id=m.id) }}">
+            <input class="btn btn-primary" role="button" type="submit" value="Delete"/>
+        </form>
     </td>
     <td>
         <a class="btn btn-primary" role="button"

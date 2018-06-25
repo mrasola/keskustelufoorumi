@@ -9,6 +9,7 @@ class User(Base):
     name = db.Column(db.String(144), nullable=False)
     username = db.Column(db.String(144), nullable=False)
     password = db.Column(db.String(144), nullable=False)
+    urole=db.Column(db.String(80))
 
     messages = db.relationship("Message", backref='account', lazy=True)
 
@@ -16,6 +17,7 @@ class User(Base):
         self.name = name
         self.username = username
         self.password = password
+        self.urole="USER"
 
     def get_id(self):
         return self.id
@@ -26,8 +28,12 @@ class User(Base):
     def is_anonymous(self):
         return False
 
+    @property
     def is_authenticated(self):
         return True
+
+    def roles(self):
+        return ["USER"]
 
     @staticmethod
     def users_messages_number():

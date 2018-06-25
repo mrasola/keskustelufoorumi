@@ -1,16 +1,14 @@
 {% extends "layout.html" %}
 
 {% block body %}
-<table>
-    <tr>
-        <th>Category</th>
-        <td>{{c.name}}</td>
-    </tr>
-    <tr>
-        <th>Description</th>
-        <td>{{ c.description }}</td>
-    </tr>
-</table>
+
+<body>
+<div class="card">
+    <div class="card-header bg-dark text-white"><h4>{{ c.name }}</h4></div>
+    <div class="card-body">{{ c.description }}</div>
+</div>
+</body>
+
 <table>
     <td>
         <form method="POST" action="{{ url_for('category_delete', category_id=c.id) }}">

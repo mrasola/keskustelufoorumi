@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+
+{% block body %}
+
+{% if ms is defined %}
+
+<div class="container">
+    <h2>The most active users</h2>
+    <p>This table shows the ten users with most messages.</p>
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>Username</th>
+            <th>Number of messages</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for u in ms %}
+        <tr>
+            <td>{{ u.un }}</td>
+            <td>{{ u.ms }}</td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+{% endif %}
+
+{% endblock %}
